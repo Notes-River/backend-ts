@@ -4,6 +4,9 @@ import { DecodedToken, RedisGet, RedisSet } from './type';
 import { sign, verify } from 'jsonwebtoken';
 import { genSaltSync, hashSync, compareSync } from 'bcryptjs';
 import { NextFunction, Request, Response } from 'express';
+import { config } from 'dotenv';
+
+config({ path: __dirname + '../../.env' });
 
 export const log = console.log;
 export const accessKey = 'iamjack56';
@@ -14,8 +17,8 @@ const mailGateWays: Transporter = createTransport({
     port: 587,
     secure: false,
     auth: {
-        user: 'managerp305@gmail.com',
-        pass: 'tvcc ijjh iejq sobp',
+        user: process.env.EMAIL,
+        pass: process.env.PASSWORD,
     }
 });
 
