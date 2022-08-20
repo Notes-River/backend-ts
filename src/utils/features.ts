@@ -9,8 +9,8 @@ import { config } from 'dotenv';
 config({ path: __dirname + '../../.env' });
 
 export const log = console.log;
-export const accessKey = 'iamjack56';
-const secretKey = 'blackcoder56';
+export const accessKey = process.env.JWT_SECRET as string;
+const secretKey = process.env.JWT_SECRET as string;
 
 const mailGateWays: Transporter = createTransport({
     host: 'smtp.gmail.com',
